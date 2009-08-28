@@ -52,3 +52,4 @@ alias ligapglatin="sudo su postgres -c '/opt/local/lib/postgresql83/bin/postgres
 alias ligapgutf="sudo su postgres -c '/opt/local/lib/postgresql83/bin/postgres -D /opt/local/var/db/postgresql83/defaultutf8'"
 
 alias liga_mc="sudo launchctl load -w /Library/LaunchDaemons/org.macports.memcached.plist"
+
