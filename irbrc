@@ -1,6 +1,8 @@
-# require 'wirble'
 require 'rubygems'
 require 'wirble'
+require 'bond'
+require 'bond/completion'
+
 
 Wirble.init(:history_size => 10000)
 Wirble.colorize
@@ -47,3 +49,16 @@ class Object
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
 end
+
+
+
+# print SQL to STDOUT
+if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
+  require 'logger'
+  RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+end
+
+# History
+# require 'irb/ext/save-history'
+# IRB.conf[:SAVE_HISTORY] = 100
+# IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"

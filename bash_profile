@@ -1,9 +1,7 @@
-source ~/.git-completion.bash
-source ~/.bashrc
-source ~/.gitaliases
-# -- start rip config -- #
-RIPDIR=/Users/ryanbigg/.rip
-RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-PATH="$PATH:$RIPDIR/active/bin"
-export RIPDIR RUBYLIB PATH
-# -- end rip config -- #
+if [ -f ~/.git-completion.bash ] ; then source ~/.git-completion.bash ; fi
+if [ -f ~/.bashrc ] ; then source ~/.bashrc ; fi
+if [ -f ~/.bash_aliases ] ; then source ~/.bash_aliases ; fi
+if [ -f ~/.gitaliases ] ; then source ~/.gitaliases ; fi
+
+if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
+if [ -f ~/.rvm/current ] ; then source ~/.rvm/current ; fi

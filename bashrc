@@ -1,10 +1,3 @@
-export PATH="/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/:$PATH"
-export PATH="/Library/PostgreSQL8/bin/:$PATH"     
-export PATH="/usr/local/mysql/bin:$PATH"
-export PATH="/usr/local/pgsql/bin:$PATH"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export IRBRC="$HOME/.irbrc"
-
 export COLOR_NC='\e[0m' # No Color
 export COLOR_WHITE='\e[1;37m'
 export COLOR_BLACK='\e[0;30m'
@@ -33,42 +26,7 @@ export EDITOR='/usr/bin/mate -w -l1'
 export GIT_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 # sets title of window to be user@host
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"' 
-
-alias ls='ls -G'
-alias ll='ls -lah'
-alias ..='cd ..;' # can then do .. .. .. to move up multiple directories.
-alias ...='.. ..'
-alias g='grep -i'  #case insensitive grep
-alias ducks='du -cks * | sort -rn|head -11' # Lists the size of all the folders$
-alias top='top -o cpu'
-alias systail='tail -f /var/log/system.log'
-# useful command to find what you should be aliasing:
-alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
-
-# rails stuff
-alias log='tail -f -0 ./log/*.log'
-alias ss='ruby ./script/server'
-alias sc='ruby ./script/console'
-alias cdm='cap deploy deploy:migrate'
-alias model='script/generate model'
-alias controller='script/generate controller'
-alias migration='script/generate migration'
-alias migrate='rake db:migrate'
-alias rollback='rake db:rollback'
-alias dtp='rake db:test:prepare'
-alias redo="rake db:migrate && rake db:rollback"
-alias logga='ssh root@209.20.74.23'
-alias startpg='sudo /Library/StartupItems/PostgreSQL/PostgreSQL start'
-alias sr='rake spec'
-alias rt='rake test'
-alias rf='rake features'
-
-
-alias startpg='sudo /Library/StartupItems/PostgreSQL/PostgreSQL start'
-
-alias hidefile='/usr/bin/SetFile -a "V"'
-alias showfile='/usr/bin/SetFile -a "v"'
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'
 
 # Gem Doc
 export GEMDIR=`gem env gemdir`
@@ -80,8 +38,8 @@ _gemdocomplete() {
   return 0
 }
 go() {
-  if [ -d ~/Sites/$1 ]; then 
-    cd ~/Sites/$1; 
+  if [ -d ~/Sites/$1 ]; then
+    cd ~/Sites/$1;
   else
     echo "$1 is not a project."
   fi
@@ -92,7 +50,7 @@ complete -C ~/.rake-completion.rb -o default rake
 
 
 # readline settings
-bind "set completion-ignore-case on" 
+bind "set completion-ignore-case on"
 bind "set bell-style none" # No bell, because it's damn annoying
 bind "set show-all-if-ambiguous On" # this allows you to automatically show completion without double tab-ing
 
@@ -102,12 +60,12 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ ! -f ~/.dirs ]; then
-	touch ~/.dirs
+  touch ~/.dirs
 fi
 
 alias show='cat ~/.dirs'
 save (){
-	command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; 
+  command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ;
 }
 source ~/.dirs  # Initialization for the above 'save' facility: source the .dirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
@@ -116,5 +74,3 @@ shopt -s cdable_vars # set the bash option so that no '$' is required when using
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
-
-alias h='history|g'

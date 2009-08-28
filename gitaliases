@@ -24,9 +24,9 @@ function gpall() {
 }
 alias gitrm="git stat | grep deleted | awk '{print $3}' | xargs git rm"
 alias gitx="open -b nl.frim.GitX"
-                                
+
 # End Dr Nic Compatibility Mode
-                            
+
 # Bo's preferred aliases
 alias gi='git init'
 alias gac='gca'
@@ -35,6 +35,3 @@ alias gpl='gl'
 alias gpo='gp origin master'
 
 alias ignore_empty='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
-
-export PATH=/usr/local/git/bin:$PATH
-export MANPATH=/usr/local/git/man:$MANPATH
