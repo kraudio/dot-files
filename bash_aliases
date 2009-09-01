@@ -1,3 +1,5 @@
+alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
+
 # UNIX stuff
 alias h='history|g'
 alias ls='ls -G'
